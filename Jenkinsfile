@@ -14,19 +14,19 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker build -t ntr1505/java:${BUILD_NUMBER} .'
+                sh '''docker build -t ntr1505/java:${BUILD_NUMBER} .'''
             }
         }
 
         stage('Login to DockerHub') {
             steps {
-                sh 'echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'
+                sh '''echo $DOCKERHUB_PSW | docker login -u $DOCKERHUB_USR --password-stdin'''
             }
         }
 
         stage('Push Image') {
             steps {
-                sh 'sudo docker push ntr1505/java:${BUILD_NUMBER}'
+                sh '''docker push ntr1505/java:${BUILD_NUMBER}'''
             }
         }
     }
