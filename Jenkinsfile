@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker build -t ntr1505/nodeapp:${BUILD_NUMBER} .'
+                sh 'sudo docker build -t ntr1505/java:${BUILD_NUMBER} .'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                sh 'sudo docker push ntr1505/nodeapp:${BUILD_NUMBER}'
+                sh 'sudo docker push ntr1505/java:${BUILD_NUMBER}'
             }
         }
     }
